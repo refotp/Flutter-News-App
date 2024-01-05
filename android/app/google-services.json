@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "762075119619",
+    "project_id": "warta-30764",
+    "storage_bucket": "warta-30764.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762075119619:android:f0e4ccbc92591f5d13ce36",
+        "android_client_info": {
+          "package_name": "com.example.warta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762075119619-tb8sbedsb5jo97sb4t4ojtt1mdpihqfd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.warta",
+            "certificate_hash": "d20aec8979ff7562b88010fd1f308bf5c1c5c93f"
+          }
+        },
+        {
+          "client_id": "762075119619-4g1n8v5qj8h3qn609rnh7nmevjb2bsch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3o_VoMHFLul_xg_lKEyjAXYp7yzYE9ks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762075119619-4g1n8v5qj8h3qn609rnh7nmevjb2bsch.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "762075119619-16ita5qiposs1i30f5nvdmd82b8qgcv1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.warta"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

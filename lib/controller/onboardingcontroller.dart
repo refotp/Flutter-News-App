@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:warta/screens/pages/login/loginpage.dart';
 
 class OnBoardingController extends GetxController {
@@ -19,6 +20,8 @@ class OnBoardingController extends GetxController {
 
   void nextPage() {
     if (currentIndex.value < 2) {
+      final storage = GetStorage();
+      storage.write('isFirstTime', false);
       pageController.nextPage(
           duration: const Duration(milliseconds: 800), curve: Curves.ease);
     } else {

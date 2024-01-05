@@ -1,4 +1,6 @@
-class OnBoardingConst {
+class StringConst {
+  static const String logo = 'assets/images/Logo.png';
+
   static const String title1 = 'Selamat datang di Warta';
   static const String title2 = 'Akses berita kapan saja';
   static const String title3 = 'Mari kita mulai';

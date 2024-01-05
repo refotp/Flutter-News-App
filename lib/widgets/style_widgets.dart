@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 TextStyle textButton() {
   return const TextStyle(
@@ -8,7 +7,9 @@ TextStyle textButton() {
 
 TextStyle textTitle() {
   return const TextStyle(
-      color: Colors.blue, fontSize: 20, fontWeight: FontWeight.w700);
+      color: Color.fromARGB(255, 63, 101, 225),
+      fontSize: 20,
+      fontWeight: FontWeight.w700);
 }
 
 TextStyle textDesc() {
@@ -16,4 +17,13 @@ TextStyle textDesc() {
     color: Colors.black,
     fontSize: 16,
   );
+}
+
+TextStyle globalTitle(double ukuran) {
+  return TextStyle(
+      color: Colors.black, fontSize: ukuran, fontWeight: FontWeight.w600);
+}
+
+TextStyle globalSubTitle(double ukuran, Color? warna) {
+  return TextStyle(color: warna, fontSize: ukuran);
 }
