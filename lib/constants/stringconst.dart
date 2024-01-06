@@ -18,4 +18,6 @@ class StringConst {
       'assets/images/onboading/Animation - 1703650030642 (2).json';
   static const String img3 =
       'assets/images/onboading/Animation - 1704339657480.json';
+
+  static const String apiKey = '758e28b3d4584c16a74816d007f6dc3e';
 }

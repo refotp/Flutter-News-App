@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:warta/controller/loginpagecontroller.dart';
+import 'package:warta/helper/validation.dart';
 import 'package:warta/screens/pages/login/bottomsection.dart';
-import 'package:warta/screens/pages/login/buttonform.dart';
 import 'package:warta/screens/pages/login/formspacing.dart';
 import 'package:warta/screens/pages/login/headersection.dart';
-import 'package:warta/screens/pages/login/textformfield.dart';
-import 'package:warta/screens/pages/login/textformpasswordfield.dart';
+import 'package:warta/widgets/style_widgets.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -29,19 +29,83 @@ class LoginPage extends StatelessWidget {
               ),
               const FormSpacing(),
               Form(
+                key: controller.loginFormKey,
                 child: Column(
                   children: [
-                    TextInputField(
-                      textEditingController: controller.emailController,
-                      label: 'prayitno@gmail.com',
-                      icon: Iconsax.sms,
-                      fieldName: 'E-mail',
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'E-mail',
+                          style: globalSubTitle(14, Colors.black),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          validator: (value) =>
+                              Validator.validateEmptyText('E-mail', value),
+                          controller: controller.emailController,
+                          cursorColor: Colors.amber,
+                          decoration: InputDecoration(
+                              constraints: textFormFieldBoxContstraints(),
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.never,
+                              label: const Text('E-mail'),
+                              border: textFormFieldBorder(),
+                              focusedBorder: textFormFieldFocusedBorder(),
+                              enabledBorder: textFormFieldEnabledBorder(),
+                              labelStyle: const TextStyle(
+                                  color: Color.fromARGB(131, 33, 149, 243)),
+                              prefixIcon: const Icon(Iconsax.sms),
+                              prefixIconColor: Colors.black),
+                        ),
+                      ],
                     ),
                     const FormSpacing(),
-                    TextFormPasswordField(
-                      fieldName: 'Password',
-                      label: 'kudaLautberKepala12',
-                      controller: controller.passwordController,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Password',
+                          style: globalSubTitle(14, Colors.black),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Obx(() {
+                          return TextFormField(
+                            validator: (value) =>
+                                Validator.validateEmptyText('Password', value),
+                            obscureText: controller.hidePass.value,
+                            controller: controller.passwordController,
+                            cursorColor: Colors.amber,
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.never,
+                              constraints: textFormFieldBoxContstraints(),
+                              label: const Text('Password'),
+                              border: textFormFieldBorder(),
+                              focusedBorder: textFormFieldFocusedBorder(),
+                              enabledBorder: textFormFieldEnabledBorder(),
+                              labelStyle: const TextStyle(
+                                  color: Color.fromARGB(131, 33, 149, 243)),
+                              prefixIcon: const Icon(Iconsax.lock),
+                              prefixIconColor: Colors.black,
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  controller.hidePass.value =
+                                      !controller.hidePass.value;
+                                },
+                                icon: controller.hidePass.value
+                                    ? const Icon(Iconsax.eye_slash)
+                                    : const Icon(Iconsax.eye),
+                              ),
+                            ),
+                          );
+                        })
+                      ],
                     ),
                     const FormSpacing(),
                     const BottomSection(),
@@ -51,12 +115,20 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 28,
               ),
-              FormButton(
-                controller: controller,
-                text: 'Sign In',
-                textColor: Colors.white,
-                buttonColor: Colors.blue,
-              ),
+              SizedBox(
+                width: double.maxFinite,
+                height: 44.h,
+                child: ElevatedButton(
+                  style: buttonFormStyle(Colors.blue),
+                  onPressed: () {
+                    controller.logIn();
+                  },
+                  child: Text(
+                    'Login',
+                    style: textButton(Colors.white),
+                  ),
+                ),
+              )
             ],
           ),
         ),

@@ -31,7 +31,7 @@ class OnBoardingPage extends StatelessWidget {
             },
             child: Text(
               'Skip',
-              style: textButton(),
+              style: textButton(Colors.amber),
             ),
           ),
         ],

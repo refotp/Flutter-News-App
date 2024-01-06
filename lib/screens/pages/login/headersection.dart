@@ -24,7 +24,7 @@ class HeaderSection extends StatelessWidget {
           children: [
             Text(
               title,
-              style: globalTitle(20),
+              style: globalTitle(20, Colors.black),
             ),
             const SizedBox(
               height: 8,

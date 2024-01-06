@@ -21,11 +21,8 @@ class MyApp extends StatelessWidget {
                 useMaterial3: true,
                 fontFamily: 'Poppins'),
             home: const Scaffold(
-              backgroundColor: Color.fromARGB(255, 42, 95, 255),
-              body: Center(
-                child: CircularProgressIndicator(
-                  color: Colors.white,
-                ),
+              body: CircularProgressIndicator(
+                color: Colors.white,
               ),
             ),
           );
